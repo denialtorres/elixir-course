@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  elixir_dev:
+    build: .
+    image: elixir_dev_custom
+    volumes:
+      - .:/workspace # Mounts the current directory to /workspace inside the container
+    working_dir: /workspace
+    stdin_open: true # Keeps stdin open
+    tty: true # Allows an interactive terminal
