@@ -14,3 +14,8 @@ Open the terminal
 ```
 iex -S mix
 ```
+
+Install new dependencies(gems?)
+```
+mix deps.get
+```
