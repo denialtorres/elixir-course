@@ -27,6 +27,14 @@ defmodule Cards do
     Enum.shuffle(deck)
   end
 
+  @doc """
+    Determines wheter a deck contains a given card
+
+  ## Examples
+      iex> deck = Cards.create_deck
+      iex> Cards.contains?(deck, "Ace of Spades")
+      true
+  """
   def contains?(deck, hand) do
     Enum.member?(deck, hand)
   end
@@ -37,10 +45,9 @@ defmodule Cards do
     in the hand.
 
   ## Examples
-      iex> deck = Cards.created_deck
+      iex> deck = Cards.create_deck
       iex> hand = Cards.deal(deck, 1)
-      iex> hand
-      ["Ace of spades"]
+      ["Ace of Spades"]
   """
   def deal(deck, hand_size) do
    {hand, _rest} = Enum.split(deck, hand_size)
