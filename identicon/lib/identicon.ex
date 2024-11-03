@@ -3,6 +3,12 @@ defmodule Identicon do
     input
     |> hash_input
     |> pick_color
+    |> build_grid
+  end
+
+  def build_grid(image) do
+    image.hex
+    |> Enum.chunk(3)
   end
 
   def pick_color(image) do
