@@ -2,6 +2,12 @@ defmodule Identicon do
   def main(input) do
     input
     |> hash_input
+    |> pick_color
+  end
+
+  def pick_color(image) do
+    [red, green, blue | _tail ] = image.hex
+    %Identicon.Image{image | color: { red, green, blue}}
   end
 
   def hash_input(input) do
