@@ -19,3 +19,8 @@ Install new dependencies(gems?)
 ```
 mix deps.get
 ```
+
+To generate documentation
+```
+mix docs
+```
