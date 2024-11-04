@@ -37,3 +37,9 @@ nvm install v16.13.0
 nvm use v16.13.0
 npm install && node node_modules/brunch/bin/brunch build
 ```
+
+To Compile and Run
+```
+mix ecto.create
+mix phoenix.server
+```
