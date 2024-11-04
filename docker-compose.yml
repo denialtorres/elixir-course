@@ -8,3 +8,23 @@ services:
     working_dir: /workspace
     stdin_open: true # Keeps stdin open
     tty: true # Allows an interactive terminal
+    environment:
+      # Environment variables to connect to the postgres service
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: my_database # Customize the database name as needed
+    depends_on:
+      - postgres # Ensure postgres service starts first
+  postgres:
+    image: postgres:13 # Specify PostgreSQL version
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: my_database # Customize the database name as needed
+    ports:
+      - "5432:5432" # Expose PostgreSQL on the default port 5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data # Persist PostgreSQL data
+volumes:
+  pgdata:
