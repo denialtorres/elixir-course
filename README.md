@@ -7,7 +7,7 @@ docker-compose up --build
 Run Elixir commands inside the container:
 
 ```
-docker-compose run elixir_dev bash
+docker-compose exec elixir_dev /bin/bash
 ```
 
 Open the terminal
