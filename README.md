@@ -2,6 +2,10 @@
 
 ```
 docker-compose up --build
+or
+docker-compose up -d
+
+
 ```
 
 Run Elixir commands inside the container:
