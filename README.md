@@ -47,3 +47,18 @@ To Compile and Run
 mix ecto.create
 mix phoenix.server
 ```
+
+Debug the server (rails c equivalent)
+```
+iex -S mix phoenix.server
+```
+
+
+Create database migrations (ex add a topics table)
+```
+mix ecto.gen.migration add_topics
+```
+Run migrations
+```
+mix ecto.migrate
+```
