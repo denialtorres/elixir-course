@@ -10,3 +10,15 @@
   position: relative;
   margin-bottom: 25px;
 }
+
+.floating-button {
+  text-align: right;
+  /* Or adjust as needed */
+  margin-top: 20px;
+  /* Optional spacing */
+}
+
+.fixed-action-btn {
+  position: static !important;
+  /* Remove fixed positioning */
+}
