@@ -3,6 +3,8 @@ services:
   elixir_dev:
     build: .
     image: elixir_dev_custom
+    env_file:
+      - .env
     volumes:
       - .:/workspace # Mounts the current directory to /workspace inside the container
     ports:

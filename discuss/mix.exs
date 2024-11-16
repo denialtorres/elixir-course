@@ -29,16 +29,16 @@ defmodule Discuss.Mixfile do
   # Specifies your project dependencies.
   #
   # Type `mix help deps` for examples and options.
-  defp deps do
-    [{:phoenix, "~> 1.2.1"},
+    defp deps do
+    [{:phoenix, "~> 1.2.5"},
      {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_ecto, "~> 3.0"},
-     {:postgrex, ">= 0.12.1"},
+     {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:ueberauth, "~> 0.4"},
+     {:ueberauth, "~> 0.3"},
      {:ueberauth_github, "~> 0.4"}]
   end
 
