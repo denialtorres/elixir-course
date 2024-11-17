@@ -12,6 +12,7 @@ defmodule Discuss do
       supervisor(Discuss.Repo, []),
       # Start the endpoint when the application starts
       supervisor(Discuss.Endpoint, []),
+      {Phoenix.PubSub, name: Discuss.PubSub},
       # Start your own worker by calling: Discuss.Worker.start_link(arg1, arg2, arg3)
       # worker(Discuss.Worker, [arg1, arg2, arg3]),
     ]

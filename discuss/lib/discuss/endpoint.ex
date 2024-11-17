@@ -1,7 +1,9 @@
 defmodule Discuss.Endpoint do
   use Phoenix.Endpoint, otp_app: :discuss
 
-  socket "/socket", Discuss.UserSocket
+  socket "/socket", Discuss.UserSocket,
+    websocket: true,
+    longpoll: [check_origin: true]
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -17,6 +19,7 @@ defmodule Discuss.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :discuss
   end
 
   plug Plug.RequestId
@@ -25,7 +28,7 @@ defmodule Discuss.Endpoint do
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
-    json_decoder: Poison
+    json_decoder: Jason
 
   plug Plug.MethodOverride
   plug Plug.Head

@@ -3,7 +3,7 @@
 #
 # This configuration file is loaded before any dependency and
 # is restricted to this project.
-use Mix.Config
+import Config
 
 # General application configuration
 config :discuss,
@@ -14,23 +14,21 @@ config :discuss, Discuss.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "S5wkoYvHmL36Fipfrjn4YglDcOyxGKjSHIKQHx/tq5luxKfgjRfw6Z2Y7StXSGtm",
   render_errors: [view: Discuss.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Discuss.PubSub,
-           adapter: Phoenix.PubSub.PG2]
-
+  pubsub_server: Discuss.PubSub
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+# Use Jason for JSON parsing in Phoenix
+config :phoenix, :json_library, Jason
+
+config :oauth2,
+  serializers: %{
+      "application/vnd.api+json" => Jason,
+      "application/json" => Jason,
+    }
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
-
-config :ueberauth, Ueberauth,
-  providers: [
-    github: { Ueberauth.Strategy.Github, [] }
-  ]
-
-config :ueberauth, Ueberauth.Strategy.Github.Oauth,
-  client_id: System.get_env("GITHUB_CLIENT_ID"),
-  client_secret: System.get_env("GITHUB_CLIENT_SECRET")
+import_config "oauth.secret.exs"
