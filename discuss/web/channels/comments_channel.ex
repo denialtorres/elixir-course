@@ -20,6 +20,7 @@ defmodule Discuss.CommentsChannel do
 
     case Repo.insert(changeset) do
       {:ok, comment} ->
+        comment = Repo.preload(comment, :user)
         broadcast!(socket, "comments:#{socket.assigns.topic.id}:new",
           %{comment: comment}
         )
