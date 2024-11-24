@@ -5,7 +5,6 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 
 socket.connect()
 
-
 const createSocket = (topicId) => {
   let channel = socket.channel(`comments:${topicId}`, {})
 
